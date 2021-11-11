@@ -51,7 +51,7 @@ For the given input, this endpoint must do the following:
   - Name of any medication they are on
 - Returns a final JSON payload with all aggregated data for the patient and a list of all their appointments.
 
-# Frontend UI
+## Frontend UI
 
 Goal: Implement a **bare bones** front end interface that displays calls the two newly added endpoints and displays the data in a simple list.
 
@@ -59,6 +59,6 @@ The front end should be able to accept user input and make the relevant API call
 
 A simple unordered list that displays the data and is hydrated by the JSON responses is perfectly fine.
 
-# Submisison
+## **Submission**
 
 Please commit and final work to a separate branch on the repository.

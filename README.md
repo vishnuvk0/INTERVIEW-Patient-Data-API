@@ -1,19 +1,4 @@
-# The problem:
-
-Today we'll be working through a proof of concept micro service, that actually very much closely resembles an existing service we have internally.
-
-This microservice can be thought of as a **Patient Data Aggregation REST API**
-
-As a patient focused healthcare company we have many different clinics we work with that each see thousands of patients. The goal of this service is to really just get a good overview of what patients are seen by a doctor on a specific day.
-
-This tool will serve as wrapper api around a third party API, which has custom endpoints that collect data from something called an EHR. For context, an EHR is the electronic medical record system a doctor uses to store medical information. Really its the backbone of any medical practice/hospital.
-
-- context:
-  - what to tell the candidate before the meeting
-    - will need IDE setup.
-    - sharing screen.
-    - wirting an api in node and front end in front end framework of choice
-      - clairfy the back end is most important
+# INTERVIEW-Patient-Data-API
 
 # Implemenation Details
 
@@ -24,3 +9,52 @@ Today we will be building a simple backend wrapper API around the EHR API found 
 Please implement the following using NodeJS and React (or your favorite frontend framework of choice). Feel free to work with JS or TS.
 
 ## Backend API
+
+The REST API will have to simple GET endpoints that aggregate patient data from the EHR api.
+
+### Endpoint #1
+
+Input: A string indicating a specific date in the format YYYY-MM-DD
+
+**Goal: Will be used to populate a front end UI that lists all appointments for a given day, along with extra information on the patient that attended the appointment.**
+
+Functionality:
+
+For the given input, this endpoint must do the following:
+
+- Query and get all appointments that occurred on the specified input day for all client_ids (client_id = a specific medical practice)
+- For each patient that had a specific appointment on the input day, fetch the following extra data attributes:
+  - First Name
+  - Last Name
+  - Phone number
+  - Date of birth
+  - Name of any medication they are on
+- Return a final JSON payload with all aggregated data for each appointment
+  - Will be used to populate a front end UI that lists all appointments for a given day, along with extra information on the patient that attended the appointment.
+
+### Endpoint #2
+
+Input: The unique identifier for a patient. (patient_id)
+
+**Goal: Will be used to populate a front end UI that lists all appointments for a specific patient along with extra information on the patient.**
+
+Functionality:
+
+For the given input, this endpoint must do the following:
+
+- Find all appointments the specific input patient has had accross all client_ids
+- Query extra attributes on the patient such as:
+  - First Name
+  - Last Name
+  - Phone number
+  - Date of birth
+  - Name of any medication they are on
+- Returns a final JSON payload with all aggregated data for the patient and a list of all their appointments.
+
+# Frontend UI
+
+Goal: Implement a **barebones** front end interface that displays calls the two newly added endpoints and displays the data in a simple list.
+
+The front end should be able to accept user input and make the relevant API calls to the wapper EHR API.
+
+A simple unordered list that displays the data and is hydrated by the JSON responses is perfectly fine.

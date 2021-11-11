@@ -1,6 +1,6 @@
 # INTERVIEW-Patient-Data-API
 
-# Implemenation Details
+# **Implementation** Details
 
 Today we will be building a simple backend wrapper API around the EHR API found here:
 
@@ -42,7 +42,7 @@ Functionality:
 
 For the given input, this endpoint must do the following:
 
-- Find all appointments the specific input patient has had accross all client_ids
+- Find all appointments the specific input patient has had across all client_ids
 - Query extra attributes on the patient such as:
   - First Name
   - Last Name
@@ -53,8 +53,8 @@ For the given input, this endpoint must do the following:
 
 # Frontend UI
 
-Goal: Implement a **barebones** front end interface that displays calls the two newly added endpoints and displays the data in a simple list.
+Goal: Implement a **bare bones** front end interface that displays calls the two newly added endpoints and displays the data in a simple list.
 
-The front end should be able to accept user input and make the relevant API calls to the wapper EHR API.
+The front end should be able to accept user input and make the relevant API calls to the wrapper EHR API.
 
 A simple unordered list that displays the data and is hydrated by the JSON responses is perfectly fine.

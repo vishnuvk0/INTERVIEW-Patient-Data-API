@@ -1,12 +1,12 @@
-# INTERVIEW-Patient-Data-API
-
 # **Implementation** Details
 
 Today we will be building a simple backend wrapper API around the EHR API found here:
 
 [API Docs](https://apidocs.healthjump.com/)
 
-Please implement the following using NodeJS and React (or your favorite frontend framework of choice). Feel free to work with JS or TS.
+Please implement the following using NodeJS. Feel free to work with JS or TS.
+
+**The backend implimentation is most important here.** If we don't get to the front end that is fine. But if we do please use React.
 
 ## Backend API
 
@@ -22,13 +22,8 @@ Functionality:
 
 For the given input, this endpoint must do the following:
 
+- Authenticate against the EHR API
 - Query and get all appointments that occurred on the specified input day for all client_ids (client_id = a specific medical practice)
-- For each patient that had a specific appointment on the input day, fetch the following extra data attributes:
-  - First Name
-  - Last Name
-  - Phone number
-  - Date of birth
-  - Name of any medication they are on
 - Return a final JSON payload with all aggregated data for each appointment
   - Will be used to populate a front end UI that lists all appointments for a given day, along with extra information on the patient that attended the appointment.
 
@@ -42,6 +37,7 @@ Functionality:
 
 For the given input, this endpoint must do the following:
 
+- Authenticate against the EHR API
 - Find all appointments the specific input patient has had across all client_ids
 - Query extra attributes on the patient such as:
   - First Name
@@ -53,7 +49,7 @@ For the given input, this endpoint must do the following:
 
 ## Frontend UI
 
-Goal: Implement a **bare bones** front end interface that displays calls the two newly added endpoints and displays the data in a simple list.
+Goal: Implement a **bare bones** front end interface that displays the responses to the two newly added endpoints and displays the data in a simple list.
 
 The front end should be able to accept user input and make the relevant API calls to the wrapper EHR API.
 

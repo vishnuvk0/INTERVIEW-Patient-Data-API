@@ -6,7 +6,7 @@ Today we will be building a simple backend wrapper API around the EHR API found 
 
 Please implement the following using NodeJS. Feel free to work with JS or TS.
 
-**The backend implimentation is most important here.** If we don't get to the front end that is fine. But if we do please use React.
+**The backend implementation is most important here.** If we don't get to the front end that is fine. But if we do please use React.
 
 ## Backend API
 
@@ -24,6 +24,8 @@ For the given input, this endpoint must do the following:
 
 - Authenticate against the EHR API
 - Query and get all appointments that occurred on the specified input day for all client_ids (client_id = a specific medical practice)
+- Use URI parameters to filter appointments by specfic date
+  ![download.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14cd6160-2615-44b4-9545-9aa79d88b1b8/download.png)
 - Return a final JSON payload with all aggregated data for each appointment
   - Will be used to populate a front end UI that lists all appointments for a given day, along with extra information on the patient that attended the appointment.
 

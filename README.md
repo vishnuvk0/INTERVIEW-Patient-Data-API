@@ -14,7 +14,7 @@ The REST API will have to simple GET endpoints that aggregate patient data from 
 
 ### Endpoint #1
 
-Input: A string indicating a specific date in the format YYYY-MM-DD
+Input: A string indicating a specific date in the format YYYYMMDD
 
 **Goal: Will be used to populate a front end UI that lists all appointments for a given day**
 

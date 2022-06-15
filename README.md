@@ -16,7 +16,7 @@ The REST API will have to simple GET endpoints that aggregate patient data from 
 
 Input: A string indicating a specific date in the format YYYY-MM-DD
 
-**Goal: Will be used to populate a front end UI that lists all appointments for a given day, along with extra information on the patient that attended the appointment.**
+**Goal: Will be used to populate a front end UI that lists all appointments for a given day**
 
 Functionality:
 
@@ -27,7 +27,7 @@ For the given input, this endpoint must do the following:
 - Use URI parameters to filter appointments by specific date
   ![download.png](Technical%20Question%20-%20Patient%20Data%20Aggregation%20API%20f023e4538298494ea747b6792df2c8f4/download.png)
 - Return a final JSON payload with all aggregated data for each appointment
-  - Will be used to populate a front end UI that lists all appointments for a given day, along with extra information on the patient that attended the appointment.
+  - Will be used to populate a front end UI that lists all appointments for a given day.
 
 ### Endpoint #2
 

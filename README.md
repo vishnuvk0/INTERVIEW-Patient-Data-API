@@ -10,7 +10,7 @@ Please implement the following using NodeJS. Feel free to work with JS or TS.
 
 ## Backend API
 
-The REST API will have to simple GET endpoints that aggregate patient data from the EHR api.
+The REST API will have two simple GET endpoints that aggregate patient data from the EHR api.
 
 ### Endpoint #1
 

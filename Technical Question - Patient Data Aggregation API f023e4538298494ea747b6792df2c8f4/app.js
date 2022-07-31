@@ -4,6 +4,7 @@ var app = express();
 const axios = require('axios');
 const FormData = require('form-data');
 const fs = require('fs');
+const prettier = require("prettier");
 
 var user = "sandbox@healthjump.com";
 var password = process.env.PASSWORD;
@@ -35,9 +36,8 @@ const get_token = async() => {
     })
     return response;
 };
-const date = "20211115"
 
-const getAppointmentData = async (jwt_token) => {
+const getAppointmentData = async (jwt_token, date) => {
     const appointment = `${healthJumpUrl}hjdw/SBOX02/appointment?date=eq~${date}`;
     console.log(appointment)
     const response = await axios.get(appointment, {
@@ -56,13 +56,19 @@ const getAppointmentData = async (jwt_token) => {
         }
     )
     console.log('we got here');
-    fs.writeFileSync('appointment.json', JSON.stringify(response.data), 'utf8', function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
     return response;
 }
+
+//write data from json to a file
+
+const write = (data) => {
+    //check if file is empty or not, write to console if it is not empty
+    fs.writeFileSync('appointments.json', prettier.format(JSON.stringify(data),{ semi: false, parser: "json" }) , (err) => {
+        if (err) throw err;
+    }
+    ); 
+    console.log('file written');
+    }
 
 const port = 3050;
 
@@ -70,12 +76,11 @@ const start = async () => {
     try {
         app.listen(port, () => console.log(`Server started on port ${port}\n\n\n`));
         const jwt_token = await get_token();
-        const {data} = await getAppointmentData(jwt_token);
-        write(data);
+        const {data} = await getAppointmentData(jwt_token, "20211115");
+        await write(data);
         process.exit(0);
     }
-    catch(err)
-    {
+    catch(err) {
         console.log(err);
         process.exit(1); //something went wrong
     }
